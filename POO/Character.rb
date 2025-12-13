@@ -9,8 +9,12 @@ class Character
     @name = name
     @health = health
   end
+  # attack universal message
+  def attack_message
+    nil
+  end
   # meth. info
   def info
-    "> The character #{@name} has #{@health} HP"
+    "> The character #{name} has #{health} HP"
   end
 end
