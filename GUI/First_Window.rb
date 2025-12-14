@@ -11,6 +11,10 @@ class Window < Gosu::Window
     super 400,600 # that's super manipulates the datas of the parent object, in this case we'll to manipulate the window's size
     self.caption = "My First Window" # and finally with caption we'll to define a title
                                     # for the window (it's self because we need to acces at the parent object parameter)
+
+    # define the label
+    @label = Gosu::Font.new(20)
+    @label_text = "HOLA, SOY UNA ETIQUETA EN GOSU!"
   end
 
   # start making a drawing method
@@ -26,6 +30,9 @@ class Window < Gosu::Window
     # THE ORDER OF THE EXPLAINS IS IN THE TRUE ORDER OF THE METHOD, WE'LL TO START
     # MAKING THE SHAPES PASS FOR PASS
     Gosu.draw_rect(60, 60, 100, 100, Gosu::Color::RED)
+
+    # draw label
+    @label.draw_text(@label_text,10,20,0,1,1,Gosu::Color::WHITE)
   end
 end
 
