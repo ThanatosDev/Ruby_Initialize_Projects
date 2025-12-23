@@ -1,0 +1,16 @@
+/* INDEX stylesheet */
+body {
+    margin: 18px;
+    font-family: Helvetica, Arial, SansSerif;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.practice-1{
+    padding: 18px;
+    border: 1px solid black;
+    background: beige;
+    width: 500px;
+    height: auto;
+}

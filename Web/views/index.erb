@@ -1,0 +1,39 @@
+<!-- views/index.erb -->
+<!-- Graphic interface web using a Ruby backend implementation -->
+
+<!doctype html>
+<html lang="en-gb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/style.css">
+  <title>Web GUI using Ruby with HTML</title>
+</head>
+<body>
+<%# this type of indent can add ruby code to an HTML file, that's make the browser able to read ruby code %>
+
+<div class="practice-1">
+
+  <div class="information-p1">
+    <h1>First Practice Ruby website integration</h1>
+    <p>
+      In this first practice, we will connect an
+      HTML form to Ruby code and then process the
+      submitted data to display a customized output in a new tab. <br>
+
+      For the backend, we will call the hello action using the POST
+      method declared in the app.rb file. In this action, we retrieve
+      the user's name and birth date from the form fields. Then, we calculate
+      the user's age to determine if they are of legal age and display the result
+      on a new page located at /hello in the views directory.
+    </p>
+  </div>
+
+  <form method="post" action="/hello">
+    <input type="text" placeholder="Name" name="name" required>
+    <input type="date" placeholder="Birth Date" name="birth" required>
+    <input type="submit" value="Submit">
+  </form>
+</div>
+</body>
+</html>

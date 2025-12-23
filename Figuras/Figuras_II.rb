@@ -54,13 +54,32 @@ end
 
 def figuras_vacias(dimension)
   # tríangulo equilátero vacío
-  dimension.times do |row|
-    (dimension*2).times do |col|
-      # para visualizar mejor el código, separaremos los cálculos en funciones separadas
-      left = dimension-1-row
-      bottom = dimension-1
-      right = dimension+row
-      if col == left || row == bottom || col == right
+  (1..dimension).each do |i|
+    # 1. Calcular los espacios iniciales para centrar el triangulo
+    espacios_blancos = "  " * (dimension-i)
+
+    # Pintar las lineas
+    if i == 1
+      # cúspide del triangulo
+      puts espacios_blancos + "* "
+    elsif i == dimension
+      # base del triangulo (lleno de asteriscos)
+      puts "* " * (2*dimension-1)
+    else
+      # lados del triangulo
+      espacios_dentro = "  " * (2*i-3)
+      puts espacios_blancos + "* " + espacios_dentro + "* "
+    end
+
+  end
+
+  puts
+  # tríangulo equilátero vacío invertido
+  (0...dimension).each do |i|
+    print "  " * i
+
+    (0...(2*(dimension-i)-1)).each do |j|
+      if i == 0 || j == 0 || j == 2*(dimension-i)-2
         print "* "
       else
         print "  "
@@ -70,20 +89,33 @@ def figuras_vacias(dimension)
   end
 
   puts
-  # tríangulo equilátero vacío invertido
-  dimension.times do |row|
-    (dimension*2).times do |col|
-      # para visualizar mejor el código, separaremos los cálculos en funciones separadas
-      left = row
-      right = (dimension*2-1)-row
-      top = 0
-      if col == left || row == top || col == right
-        print "* "
-      else
-        print "  "
-      end
+  # tríangulo equilátero vacío a 90º
+  n = dimension+1
+  # 1. Parte superior del triangulo
+  (0..n).each do |i|
+    if i == 0
+      # esquina de la base, solo un punto
+      puts "*"
+    else
+      # el borde izquierdo de la base
+      # el borde derecho es el lado inclinado
+      # el espacio de en medio lo hace vacío.
+
+      # multiplicamos espacios x2 para compensar la altura de la fuente
+      # y que pareza más equilátero
+      espacios = " " * (i*2)
+      puts "*" + espacios + "*"
     end
-    puts
+  end
+
+  # 2. Parte inferior del triangulo (de la punta hacia abajo)
+  (n-1).downto(0) do |i|
+    if i == 0
+      puts "*"
+    else
+      espacios = " " * (i*2)
+      puts "* " + espacios + "*"
+    end
   end
 end
 
