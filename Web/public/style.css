@@ -1,16 +1,34 @@
-/* INDEX stylesheet */
+/* generic stylesheet */
 body {
     margin: 18px;
     font-family: Helvetica, Arial, SansSerif;
     display: flex;
     flex-direction: column;
     align-content: center;
+    align-items: center;
+    gap: 5px;
 }
 
-.practice-1{
+/* INDEX stylesheet */
+.practice{
     padding: 18px;
     border: 1px solid black;
     background: beige;
     width: 500px;
     height: auto;
+}
+
+/* HELLO stylesheet */
+main{
+    padding: 18px;
+    border: 1px solid black;
+    background: beige;
+    text-align: center;
+}
+
+main a{
+    text-decoration: none;
+    color: black;
+    background: lightgray;
+    border: 1px solid black;
 }

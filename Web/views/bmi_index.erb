@@ -1,0 +1,29 @@
+<!-- BMI result website -->
+<!doctype html>
+<html lang="en-gb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/style.css">
+  <title>BMI result</title>
+</head>
+<body>
+<main class="bmi-body">
+  <% if @u_name %>
+    <h1>Hello <%= @u_name %>!</h1>
+  <% else %>
+    <h1>User without name!</h1>
+  <% end %>
+
+
+  <p>
+    Your BMI calculating using the next data: <br>
+    <strong><%= @weight %>kg</strong> for your weight information, and last <br>
+    <strong><%= @height %>m</strong> for your height information, we can calculate that your BMI is <br>
+    <strong><%= @bmi %></strong> and you're on the <strong><%= @class %></strong> classification
+  </p>
+
+  <a href="/">Return</a>
+</main>
+</body>
+</html>

@@ -4,22 +4,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/style.css">
   <title>Hello</title>
 </head>
 <body>
 
-<h1>Hello <%= @name %>!</h1>
+<main class="hello-body">
+  <h1>Hello <%= @name %>!</h1>
 
-<p>
-  You are <%= @age %> years old and
-  <% if @major %>
-    you are of legal age and can access this website.
-  <% else %>
-    you do not have permission to access this website.
-  <% end %>
-</p>
+  <p>
+    You are <%= @age %> years old and
+    <% if @major %>
+      you are of legal age and can access this website.
+    <% else %>
+      you do not have permission to access this website.
+    <% end %>
+  </p>
 
-<a href="/">Return</a>
+  <a href="/">Return</a>
+</main>
 
 </body>
 </html>

@@ -12,7 +12,7 @@
 <body>
 <%# this type of indent can add ruby code to an HTML file, that's make the browser able to read ruby code %>
 
-<div class="practice-1">
+<div class="practice">
 
   <div class="information-p1">
     <h1>First Practice Ruby website integration</h1>
@@ -33,6 +33,28 @@
     <input type="text" placeholder="Name" name="name" required>
     <input type="date" placeholder="Birth Date" name="birth" required>
     <input type="submit" value="Submit">
+  </form>
+</div>
+
+<div class="practice">
+  <h1>BMI Calculating with logical Ruby implementation</h1>
+  <p>
+    In this exercise, you will create a web form that asks the user for their weight
+    (in kilograms) and height (in meters). When the user submits the form, your Ruby
+    backend will receive the data using the POST method. Then, the server will calculate
+    the user’s Body Mass Index (BMI) using the formula BMI = weight / (height ** 2). Based
+    on the result, the application will determine the user’s category (underweight, normal weight,
+    overweight, or obese) and display a personalized message on a new page. <br>
+
+    This exercise will help you practice using GET to show the form, POST to process the data,
+    params to access user input, and ERB to dynamically show the results in the view.
+  </p>
+
+  <form method="post" action="/bmi">
+    <input type="text" placeholder="Name" name="user_name">
+    <input type="number" placeholder="Weight (km)" name="weight" required>
+    <input type="number" placeholder="Height (m)" name="height" step="0.01" required>
+    <input type="submit" value="Calculate">
   </form>
 </div>
 </body>
