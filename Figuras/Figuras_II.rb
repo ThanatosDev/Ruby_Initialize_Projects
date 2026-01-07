@@ -90,9 +90,8 @@ def figuras_vacias(dimension)
 
   puts
   # tríangulo equilátero vacío a 90º
-  n = dimension+1
   # 1. Parte superior del triangulo
-  (0..n).each do |i|
+  (0..(dimension+1)).each do |i|
     if i == 0
       # esquina de la base, solo un punto
       puts "*"
@@ -109,18 +108,50 @@ def figuras_vacias(dimension)
   end
 
   # 2. Parte inferior del triangulo (de la punta hacia abajo)
-  (n-1).downto(0) do |i|
+  dimension.downto(0) do |i|
     if i == 0
       puts "*"
     else
       espacios = " " * (i*2)
-      puts "* " + espacios + "*"
+      puts "*" + espacios + "*"
     end
   end
+
+  # Triangulo equilátero vacío a 90º en espejo
+  # 1. Parte Superior (Crecimiento)
+  (0..dimension).each do |i|
+    if i == 0
+      # La punta solitaria.
+      # Necesita: (dimension * 2) espacios + 1 extra (para compensar que falta la segunda estrella)
+      # Así se alinea perfectamente con la pared derecha.
+      puts " " * ((dimension * 2) + 1) + "*"
+    else
+      # El cuerpo:
+      # Espacios externos: Disminuyen de 2 en 2 para que crezca hacia la izquierda.
+      # Espacios internos: Aumentan de 2 en 2.
+      espacios_externos = " " * ((dimension - i) * 2)
+      espacios_internos = " " * (i * 2)
+      puts espacios_externos + "*" + espacios_internos + "*"
+    end
+  end
+
+  # 2. Parte Inferior (Decrecimiento)
+  # Usamos .downto para hacer el espejo exacto de arriba
+  (dimension - 1).downto(0) do |i|
+    if i == 0
+      puts " " * ((dimension * 2) + 1) + "*"
+    else
+      espacios_externos = " " * ((dimension - i) * 2)
+      espacios_internos = " " * (i * 2)
+      puts espacios_externos + "*" + espacios_internos + "*"
+    end
+  end
+
+
 end
 
 # variables de dimensionamiento
-dim = 5
+dim = 6
 
 # ejecución de las figuras
 puts "> TEMA 2 -> FIGURAS COMPLETAS"
